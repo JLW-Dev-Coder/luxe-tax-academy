@@ -1,0 +1,1974 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Luxe Tax Academy | Tax Mentorship</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600&family=Cormorant+Garamond:wght@600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #faf8f6;
+      color: #2c2c2c;
+    }
+
+    #root {
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .serif-heading {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #f5e6e8 0%, #ffe6ef 100%);
+    }
+
+    .luxury-card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(191, 152, 153, 0.08);
+    }
+
+    .luxury-card:hover {
+      box-shadow: 0 8px 32px rgba(191, 152, 153, 0.08);
+    }
+
+    .btn-primary {
+      background-color: var(--primary-color, #bf9999);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--primary-color, #bf9999);
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      border: 2px solid var(--primary-color, #bf9999);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--primary-color, #bf9999);
+      color: white;
+    }
+
+    .section-spacing {
+      padding: 80px 20px;
+    }
+
+    .max-width-wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .accent-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-pink, #f08aa2), transparent);
+      margin-bottom: 24px;
+    }
+
+    .check-icon {
+      color: var(--accent-pink, #f08aa2);
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .tier-payment-btn {
+      background-color: var(--primary-color, #bf9999);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+    }
+
+    .tier-payment-btn:hover {
+      opacity: 0.9;
+    }
+
+    .quote-box {
+      background: linear-gradient(135deg, rgba(240, 138, 162, 0.08) 0%, rgba(255, 179, 200, 0.06) 100%);
+      border-left: 4px solid var(--accent-pink, #f08aa2);
+      padding: 40px 32px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .quote-box h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    .quote-box p {
+      font-size: 14px;
+      color: #666;
+      margin-top: 16px;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .tier-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tier-price {
+      color: var(--primary-color, #bf9999);
+      font-size: 36px;
+      font-weight: 700;
+      margin: 16px 0;
+    }
+
+    .tier-bullet {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .process-step {
+      text-align: center;
+      flex: 1;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-pink, #f08aa2);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      margin: 0 auto 16px;
+    }
+
+    .onboarding-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .onboarding-btn {
+      padding: 24px;
+      background: white;
+      border: 2px solid var(--primary-color, #bf9999);
+      border-radius: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .onboarding-btn:hover {
+      background: var(--primary-color, #bf9999);
+    }
+
+    .onboarding-btn:hover .onboarding-btn-title {
+      color: white;
+    }
+
+    .onboarding-btn:hover .onboarding-btn-desc {
+      color: white;
+      opacity: 0.95;
+    }
+
+    .onboarding-btn-title {
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: var(--primary-color, #bf9999);
+      transition: color 0.3s ease;
+    }
+
+    .onboarding-btn-desc {
+      font-size: 13px;
+      color: #555;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+
+
+    footer {
+      background: #2c2c2c;
+      color: #faf8f6;
+      padding: 48px 20px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    footer p {
+      margin-bottom: 12px;
+    }
+
+    .spacing-lg {
+      margin-bottom: 24px;
+    }
+
+    .spacing-md {
+      margin-bottom: 16px;
+    }
+
+    .chatbot-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-family: 'Poppins', sans-serif;
+      z-index: 1000;
+    }
+
+    .chatbot-bubble {
+      width: 56px;
+      height: 56px;
+      background: var(--primary-color, #bf9999);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(191, 152, 153, 0.25);
+      transition: all 0.3s ease;
+      animation: subtleWiggle 4s ease-in-out infinite;
+    }
+
+    .chatbot-bubble:active {
+      animation: activeBounce 0.5s ease-out !important;
+    }
+
+    .chatbot-bubble i {
+      color: white;
+      width: 28px;
+      height: 28px;
+    }
+
+    .chatbot-window {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 340px;
+      max-height: 500px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(191, 152, 153, 0.15);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .chatbot-window.open {
+      display: flex;
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chatbot-header {
+      background: var(--primary-color, #bf9999);
+      color: white;
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chatbot-header h3 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 200px;
+    }
+
+    .chatbot-message {
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 10px 12px;
+      border-radius: 10px;
+      max-width: 85%;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chatbot-message.user {
+      align-self: flex-end;
+      background: var(--primary-color, #bf9999);
+      color: white;
+      border-radius: 10px 4px 10px 10px;
+    }
+
+    .chatbot-message.bot {
+      align-self: flex-start;
+      background: #f5f5f5;
+      color: #333;
+      border-radius: 4px 10px 10px 10px;
+    }
+
+    .chatbot-input-area {
+      padding: 12px;
+      border-top: 1px solid #eee;
+      display: flex;
+      gap: 8px;
+    }
+
+    .chatbot-input {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+    }
+
+    .chatbot-input:focus {
+      outline: none;
+      border-color: var(--primary-color, #bf9999);
+    }
+
+    .chatbot-send {
+      background: var(--accent-pink, #f08aa2);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .chatbot-send:active {
+      animation: activeBounce 0.3s ease-out !important;
+    }
+
+    .chatbot-send i {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .section-spacing {
+        padding: 60px 20px;
+      }
+
+      .serif-heading {
+        font-size: 28px;
+      }
+
+      .tier-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-box h3 {
+        font-size: 24px;
+      }
+
+      .chatbot-window {
+        width: calc(100vw - 40px);
+        max-width: 340px;
+      }
+    }
+
+    /* Login Modal Styles */
+    .login-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .login-modal-overlay.open {
+      display: flex;
+    }
+
+    .login-modal {
+      background: white;
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .login-modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #2c2c2c;
+    }
+
+    .login-modal-subtitle {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .login-form-group {
+      margin-bottom: 20px;
+    }
+
+    .login-form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+    }
+
+    .login-form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .login-form-input:focus {
+      outline: none;
+      border-color: var(--primary-color, #bf9999);
+    }
+
+    .login-form-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .login-form-buttons button {
+      flex: 1;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-submit {
+      background: var(--primary-color, #bf9999);
+      color: white;
+    }
+
+    .login-submit:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(191, 152, 153, 0.25);
+    }
+
+    .login-cancel {
+      background: #f5f5f5;
+      color: #2c2c2c;
+    }
+
+    .login-cancel:hover {
+      background: #e8e8e8;
+    }
+
+    .login-demo-notice {
+      background: linear-gradient(135deg, rgba(240, 138, 162, 0.1) 0%, rgba(255, 179, 200, 0.08) 100%);
+      border: 1px solid rgba(240, 138, 162, 0.2);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Contact Form Modal Styles */
+    .contact-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .contact-modal-overlay.open {
+      display: flex;
+    }
+
+    .contact-modal {
+      background: white;
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .contact-modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #2c2c2c;
+    }
+
+    .contact-modal-subtitle {
+      color: #888;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .contact-form-group {
+      margin-bottom: 20px;
+    }
+
+    .contact-form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 14px;
+      color: #2c2c2c;
+      margin-bottom: 8px;
+    }
+
+    .contact-form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .contact-form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form-input:focus,
+    .contact-form-textarea:focus {
+      outline: none;
+      border-color: var(--primary-color, #bf9999);
+    }
+
+    .contact-form-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .contact-form-buttons button {
+      flex: 1;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-submit {
+      background: var(--primary-color, #bf9999);
+      color: white;
+    }
+
+    .contact-submit:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(191, 152, 153, 0.25);
+    }
+
+    .contact-cancel {
+      background: #f5f5f5;
+      color: #2c2c2c;
+    }
+
+    .contact-cancel:hover {
+      background: #e8e8e8;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div id="root" class="h-full overflow-y-auto bg-white">
+   <!-- OPERATOR DASHBOARD (hidden by default, shown on login) -->
+   <div id="operator-dashboard" style="display: none; background: #faf8f6; width: 100%; height: 100%; padding: 0; margin: 0; position: fixed; top: 0; left: 0; z-index: 100; overflow-y: auto;">
+    <!-- Dashboard Header -->
+    <div style="background: white; border-bottom: 1px solid rgba(191, 152, 153, 0.1); padding: 20px; position: sticky; top: 0; z-index: 50;">
+     <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+      <h1 class="serif-heading" style="font-size: 24px; color: #2c2c2c; margin: 0;">Operator Dashboard</h1><button id="logout-btn" class="btn-secondary" style="font-size: 14px; padding: 10px 20px;">Logout</button>
+     </div>
+    </div><!-- Dashboard Content -->
+    <div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px;">
+     <!-- Summary Cards -->
+     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px;">
+      <div class="luxury-card p-6">
+       <p style="color: #999; font-size: 13px; font-weight: 600; margin: 0 0 8px 0;">Total Submissions</p>
+       <p style="font-size: 32px; font-weight: 700; color: var(--primary-color, #bf9999); margin: 0;" id="total-count">0</p>
+      </div>
+      <div class="luxury-card p-6">
+       <p style="color: #999; font-size: 13px; font-weight: 600; margin: 0 0 8px 0;">PTIN Submissions</p>
+       <p style="font-size: 32px; font-weight: 700; color: var(--accent-pink, #f08aa2); margin: 0;" id="ptin-count">0</p>
+      </div>
+      <div class="luxury-card p-6">
+       <p style="color: #999; font-size: 13px; font-weight: 600; margin: 0 0 8px 0;">ERO Submissions</p>
+       <p style="font-size: 32px; font-weight: 700; color: var(--primary-color, #bf9999); margin: 0;" id="ero-count">0</p>
+      </div>
+      <div class="luxury-card p-6">
+       <p style="color: #999; font-size: 13px; font-weight: 600; margin: 0 0 8px 0;">New This Week</p>
+       <p style="font-size: 32px; font-weight: 700; color: var(--accent-pink, #f08aa2); margin: 0;" id="new-week-count">0</p>
+      </div>
+     </div><!-- Filters and Actions -->
+     <div class="luxury-card p-6 mb-6">
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+       <div style="display: flex; gap: 8px; align-items: center; flex: 1; min-width: 200px;">
+        <input type="text" id="search-input" placeholder="Search by name, email, or phone..." style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif;">
+       </div><select id="form-type-filter" style="padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif;"> <option value="">All Form Types</option> <option value="PTIN">PTIN Only</option> <option value="ERO">ERO Only</option> </select> <select id="status-filter" style="padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif;"> <option value="">All Statuses</option> <option value="New">New</option> <option value="Reviewed">Reviewed</option> <option value="Missing info">Missing info</option> <option value="Imported to Go High Level">Imported to Go High Level</option> </select> <button id="reset-filters-btn" style="padding: 10px 16px; background: #f5f5f5; border: 1px solid #ddd; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px; font-family: 'Poppins', sans-serif; transition: all 0.3s ease;">Reset</button>
+      </div>
+     </div><!-- Export Buttons -->
+     <div class="luxury-card p-6 mb-6">
+      <p style="color: #999; font-size: 13px; font-weight: 600; margin: 0 0 12px 0;">Export Data</p>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+       <button id="export-all-btn" class="btn-primary" style="font-size: 13px; padding: 10px 16px;">Download All CSV</button> <button id="export-filtered-btn" class="btn-primary" style="font-size: 13px; padding: 10px 16px;">Download Filtered CSV</button> <button id="export-ptin-btn" class="btn-secondary" style="font-size: 13px; padding: 10px 16px;">PTIN Only</button> <button id="export-ero-btn" class="btn-secondary" style="font-size: 13px; padding: 10px 16px;">ERO Only</button>
+      </div>
+     </div><!-- Submissions Table -->
+     <div class="luxury-card" style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+       <thead>
+        <tr style="background: #faf8f6; border-bottom: 2px solid #e0e0e0;">
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Date</th>
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Name</th>
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Email</th>
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Phone</th>
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Program</th>
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Type</th>
+         <th style="padding: 16px; text-align: left; font-weight: 600; color: #2c2c2c;">Status</th>
+         <th style="padding: 16px; text-align: center; font-weight: 600; color: #2c2c2c;">Action</th>
+        </tr>
+       </thead>
+       <tbody id="submissions-table-body">
+        <!-- Rows inserted here -->
+       </tbody>
+      </table>
+      <div id="no-data-message" style="padding: 40px; text-align: center; color: #999; display: none;">
+       <p>No submissions found.</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Submission Detail Modal -->
+   <div id="detail-modal-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); display: none; align-items: center; justify-content: center; z-index: 3000;">
+    <div class="luxury-card" style="max-width: 500px; width: 90%; max-height: 80vh; overflow-y: auto; padding: 32px; animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);">
+     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+      <h2 class="serif-heading" style="font-size: 24px; margin: 0; color: #2c2c2c;">Submission Details</h2><button id="detail-close" style="background: none; border: none; color: #999; cursor: pointer; font-size: 24px; line-height: 1;">✕</button>
+     </div>
+     <div id="detail-content" style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- Content inserted here -->
+     </div>
+     <div style="display: flex; gap: 8px; margin-top: 24px;">
+      <select id="detail-status" style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; font-family: 'Poppins', sans-serif;"> <option value="New">New</option> <option value="Reviewed">Reviewed</option> <option value="Missing info">Missing info</option> <option value="Imported to Go High Level">Imported to Go High Level</option> </select> <button id="detail-update-btn" class="btn-primary" style="font-size: 14px; padding: 10px 16px;">Update Status</button>
+     </div>
+    </div>
+   </div><!-- ONBOARDING MODAL OVERLAY -->
+   <div class="onboarding-modal-overlay" id="onboarding-modal-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); display: none; align-items: center; justify-content: center; z-index: 2500; overflow-y: auto;">
+    <div class="onboarding-modal" id="onboarding-modal" style="background: white; border-radius: 20px; padding: 48px; max-width: 500px; width: 90%; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); margin: 40px auto;">
+     <!-- Modal Header -->
+     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+      <h2 class="serif-heading" id="onboarding-title" style="font-size: 28px; color: #2c2c2c; margin: 0;"></h2><button id="onboarding-close" type="button" style="background: none; border: none; color: #999; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 24px; line-height: 1;">✕</button>
+     </div><!-- Modal Description -->
+     <p id="onboarding-description" style="color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 32px;"></p><!-- Progress Indicator -->
+     <div id="progress-indicator" style="display: flex; gap: 8px; margin-bottom: 32px; justify-content: space-between;"></div><!-- Form Container -->
+     <form id="onboarding-form" style="display: flex; flex-direction: column; gap: 24px;">
+      <!-- Dynamic form content inserted here -->
+     </form><!-- Navigation Buttons -->
+     <div style="display: flex; gap: 12px; margin-top: 32px;">
+      <button type="button" id="onboarding-back" style="flex: 1; padding: 14px; background: #f5f5f5; color: #2c2c2c; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: none;">Back</button> <button type="button" id="onboarding-next" style="flex: 1; padding: 14px; background: var(--primary-color, #bf9999); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Next</button> <button type="submit" id="onboarding-submit" style="flex: 1; padding: 14px; background: var(--accent-pink, #f08aa2); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: none;">Submit</button>
+     </div>
+    </div>
+   </div><!-- HEADER -->
+   <header id="main-header" style="position: sticky; top: 0; background: #faf8f6; border-bottom: 1px solid rgba(191, 152, 153, 0.1); padding: 16px 20px; z-index: 50;">
+    <div class="max-width-wrapper flex items-center justify-between">
+     <!-- Logo & Brand -->
+     <div class="flex items-center gap-4">
+      <svg width="48" height="48" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+       <!-- Shield Outline (double-line border) --> <path d="M 24 6 L 12 12 L 12 24 Q 12 34 24 40 Q 36 34 36 24 L 36 12 Z" fill="none" stroke="var(--primary-color, #bf9999)" stroke-width="1.2" stroke-linejoin="round" /> <path d="M 24 8 L 13.5 13.5 L 13.5 24 Q 13.5 33 24 38 Q 34.5 33 34.5 24 L 34.5 13.5 Z" fill="none" stroke="var(--primary-color, #bf9999)" stroke-width="0.8" stroke-linejoin="round" /> <!-- 2x2 Grid Dividers --> <line x1="24" y1="14" x2="24" y2="36" stroke="var(--primary-color, #bf9999)" stroke-width="0.7" opacity="0.6" /> <line x1="15" y1="25" x2="33" y2="25" stroke="var(--primary-color, #bf9999)" stroke-width="0.7" opacity="0.6" /> <!-- Top-Left Quadrant: Calculator Icon --> <rect x="16" y="15.5" width="6.5" height="7" fill="none" stroke="var(--primary-color, #bf9999)" stroke-width="0.7" rx="0.5" /> <circle cx="18.5" cy="17.5" r="0.8" fill="var(--accent-pink, #f08aa2)" /> <circle cx="21" cy="17.5" r="0.8" fill="var(--accent-pink, #f08aa2)" /> <line x1="16.5" y1="19.5" x2="22.5" y2="19.5" stroke="var(--primary-color, #bf9999)" stroke-width="0.6" /> <line x1="17.5" y1="21.5" x2="20.5" y2="21.5" stroke="var(--primary-color, #bf9999)" stroke-width="0.6" /> <!-- Top-Right Quadrant: Document with Dollar Sign --> <rect x="25" y="15.5" width="6" height="8.5" fill="none" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.7" rx="0.4" /> <line x1="25.5" y1="17" x2="30.5" y2="17" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.5" /> <path d="M 28 19 Q 28 18.5 28.3 18.5 Q 28.7 18.5 28.7 19 L 28.7 21 Q 28.7 21.5 28.3 21.5 Q 28 21.5 28 21" fill="none" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.6" /> <line x1="27.5" y1="18.5" x2="29.2" y2="18.5" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.5" /> <!-- Bottom-Left Quadrant: Bar Chart with Dollar --> <rect x="16" y="27" width="1.5" height="4.5" fill="var(--primary-color, #bf9999)" opacity="0.7" /> <rect x="18.5" y="25" width="1.5" height="6.5" fill="var(--primary-color, #bf9999)" opacity="0.7" /> <rect x="21" y="26" width="1.5" height="5.5" fill="var(--primary-color, #bf9999)" opacity="0.7" /> <!-- Bottom-Right Quadrant: Feather/Leaf Icon --> <path d="M 27.5 30 Q 28.5 28 29.5 26.5 Q 29 27.5 28.5 29 Q 28 30.5 27.5 32" fill="none" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.8" stroke-linecap="round" /> <line x1="27.5" y1="30" x2="26.8" y2="30.5" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.6" /> <line x1="28.5" y1="29" x2="28" y2="29.8" stroke="var(--accent-pink, #f08aa2)" stroke-width="0.6" /> <!-- Left Laurel Branch --> <path d="M 12 24 Q 10 23 9 24 Q 10 24.5 12 24.5" fill="none" stroke="var(--primary-color, #bf9999)" stroke-width="0.7" opacity="0.7" /> <circle cx="10.5" cy="23" r="0.6" fill="var(--accent-pink, #f08aa2)" opacity="0.6" /> <!-- Right Laurel Branch --> <path d="M 36 24 Q 38 23 39 24 Q 38 24.5 36 24.5" fill="none" stroke="var(--primary-color, #bf9999)" stroke-width="0.7" opacity="0.7" /> <circle cx="37.5" cy="23" r="0.6" fill="var(--accent-pink, #f08aa2)" opacity="0.6" />
+      </svg>
+      <div>
+       <p class="serif-heading" style="font-size: 14px; color: var(--primary-color, #bf9999); margin: 0; line-height: 1.1; font-family: 'Cormorant Garamond', serif; letter-spacing: 0.5px;">THE LUXE</p>
+       <p style="font-size: 13px; color: var(--accent-pink, #f08aa2); margin: 0; font-family: 'Playfair Display', serif; font-weight: 700; letter-spacing: 0.3px;">TAX ACADEMY</p>
+      </div>
+     </div><!-- Navigation Links -->
+     <nav class="hidden md:flex gap-8 items-center" style="flex: 1; justify-content: center;">
+      <a href="#choose-your-path" style="color: #2c2c2c; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s ease;" class="nav-link">Mentorship</a> <a href="#onboarding-section" style="color: #2c2c2c; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s ease;" class="nav-link">Onboarding</a> <a href="#contact-link" style="color: #2c2c2c; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s ease; cursor: pointer;" class="nav-link contact-link">Contact</a>
+     </nav><!-- Operator Login Button --> <button id="operator-login-btn" class="flex items-center gap-2" style="background: transparent; border: 1.5px solid var(--primary-color, #bf9999); color: var(--primary-color, #bf9999); padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif;"> <i data-lucide="lock" style="width: 16px; height: 16px;"></i> <span>Operator Login</span> </button>
+    </div>
+   </header><!-- HERO SECTION -->
+   <section class="hero-gradient section-spacing">
+    <div class="max-width-wrapper">
+     <div class="flex flex-col items-center text-center">
+      <div class="mb-16">
+       <p class="text-sm font-semibold tracking-wide mb-6" style="color: var(--primary-color, #bf9999);">THE LUXE TAX ACADEMY</p>
+       <h1 class="serif-heading text-5xl md:text-6xl leading-tight mb-6" style="color: #2c2c2c;">Luxury Systems Built To Scale</h1>
+       <div class="text-xl md:text-2xl leading-relaxed mb-8" style="color: #555;">
+        <p class="mb-3">Not just tips. Real structure.</p>
+        <p>I show you exactly how to set up, file, and get paid the right way.</p>
+       </div>
+       <p class="text-sm font-semibold tracking-wide mb-4" style="color: #999;">PTIN • ERO • SYSTEMS • SOFTWARE</p>
+       <p class="text-sm font-medium mb-12" style="color: var(--primary-color, #bf9999);">No experience needed. Just follow the process.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto justify-center"><button class="btn-primary">Get Started</button> <button class="btn-secondary view-mentorship-btn">View Mentorship Options</button>
+      </div>
+     </div>
+    </div>
+   </section><!-- REINTRODUCTION SECTION -->
+   <section class="section-spacing" style="background: #faf8f6;">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-8" style="color: #2c2c2c;">Hey y'all, I'm Jas.</h2>
+     <div class="accent-divider"></div>
+     <div class="max-w-2xl">
+      <p class="text-lg leading-relaxed mb-6" style="color: #555;">I help people stop stressing every tax season and start moving with structure.</p>
+      <p class="text-lg leading-relaxed mb-6" style="color: #555;">If you've been trying to figure this out on your own… yeah, we need to talk.</p>
+      <p class="text-lg leading-relaxed mb-12" style="color: #555;">Because we're not doing guesswork over here.</p>
+      <p class="text-lg leading-relaxed font-semibold" style="color: #2c2c2c;">You're getting real guidance, real systems, and a plan you can actually follow.</p>
+     </div><!-- Mini-bullets -->
+     <div class="mt-16 grid gap-6 max-w-xl">
+      <div class="flex items-start gap-4"><i data-lucide="check-circle" class="check-icon mt-1"></i> <span style="color: #555;">Clear steps</span>
+      </div>
+      <div class="flex items-start gap-4"><i data-lucide="check-circle" class="check-icon mt-1"></i> <span style="color: #555;">Support you can ask questions in</span>
+      </div>
+      <div class="flex items-start gap-4"><i data-lucide="check-circle" class="check-icon mt-1"></i> <span style="color: #555;">A business that's built to last</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- AUTHORITY / ELEVATION SECTION -->
+   <section class="section-spacing">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-8" style="color: #2c2c2c;">Tax professionals… it's time to elevate.</h2>
+     <div class="accent-divider"></div>
+     <div class="max-w-2xl mb-16">
+      <p class="text-lg leading-relaxed mb-6" style="color: #555;">If your current mentorship feels like videos and vibes, but no access… that's your sign.</p>
+      <p class="text-lg leading-relaxed font-semibold" style="color: #2c2c2c;">You deserve structure, transparency, and support that actually helps you grow.</p>
+     </div><!-- Authority bullets -->
+     <div class="grid gap-4 max-w-2xl">
+      <div class="flex items-start gap-4"><i data-lucide="check" class="check-icon mt-1"></i> <span style="color: #555;">Real mentorship (not just videos)</span>
+      </div>
+      <div class="flex items-start gap-4"><i data-lucide="check" class="check-icon mt-1"></i> <span style="color: #555;">Systems that actually work</span>
+      </div>
+      <div class="flex items-start gap-4"><i data-lucide="check" class="check-icon mt-1"></i> <span style="color: #555;">Guidance you can ask questions in</span>
+      </div>
+      <div class="flex items-start gap-4"><i data-lucide="check" class="check-icon mt-1"></i> <span style="color: #555;">Structure so you can scale</span>
+      </div>
+     </div>
+    </div>
+   </section><!-- MENTORSHIP TIERS SECTION -->
+   <section class="section-spacing" style="background: #faf8f6;">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-8 text-center" style="color: #2c2c2c;">Choose Your Path</h2>
+     <div class="mx-auto w-16 h-1 rounded-full mb-16" style="background: var(--accent-pink, #f08aa2);"></div>
+     <div class="tier-grid" id="choose-your-path"><!-- Tier 1 -->
+      <div class="luxury-card tier-card p-8">
+       <h3 class="serif-heading text-2xl mb-2" style="color: #2c2c2c;">Starter PTIN</h3>
+       <div class="tier-price">
+        $99
+       </div>
+       <p class="tier-bullet font-semibold mb-6" style="color: #555;">If you're just getting started, this is where you begin.</p>
+       <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="https://square.link/u/8KCgtPYQ?src=sheet" target="_blank" rel="noopener noreferrer" class="btn-primary tier-payment-btn" style="text-align: center; text-decoration: none; display: block;">Enroll Now</a>
+        <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">Secure checkout via Square</p>
+       </div>
+      </div><!-- Tier 2 -->
+      <div class="luxury-card tier-card p-8">
+       <h3 class="serif-heading text-2xl mb-2" style="color: #2c2c2c;">Growth PTIN</h3>
+       <div class="tier-price">
+        $299
+       </div>
+       <p class="tier-bullet font-semibold mb-6" style="color: #555;">You know the basics… now let's get you paid.</p>
+       <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="https://square.link/u/oiIHXuWd?src=sheet" target="_blank" rel="noopener noreferrer" class="btn-primary tier-payment-btn" style="text-align: center; text-decoration: none; display: block;">Enroll Now</a>
+        <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">Secure checkout via Square</p>
+       </div>
+      </div><!-- Tier 3 -->
+      <div class="luxury-card tier-card p-8">
+       <h3 class="serif-heading text-2xl mb-2" style="color: #2c2c2c;">Elite PTIN</h3>
+       <div class="tier-price">
+        $899
+       </div>
+       <p class="tier-bullet font-semibold mb-6" style="color: #555;">You want control, structure, and to keep your money.</p>
+       <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="https://square.link/u/PbpdPVuw?src=sheet" target="_blank" rel="noopener noreferrer" class="btn-primary tier-payment-btn" style="text-align: center; text-decoration: none; display: block;">Enroll Now</a>
+        <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">Secure checkout via Square</p>
+       </div>
+      </div><!-- Tier 4 -->
+      <div class="luxury-card tier-card p-8">
+       <h3 class="serif-heading text-2xl mb-2" style="color: #2c2c2c;">ERO Mentorship</h3>
+       <div class="tier-price">
+        $997
+       </div>
+       <p class="tier-bullet font-semibold mb-6" style="color: #555;">Full setup. Compliance. Workflow. No guessing.</p>
+       <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="https://square.link/u/uRGxmZ2S?src=sheet" target="_blank" rel="noopener noreferrer" class="btn-primary tier-payment-btn" style="text-align: center; text-decoration: none; display: block;">Enroll Now</a>
+        <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">Secure checkout via Square</p>
+       </div>
+      </div><!-- Tier 5 -->
+      <div class="luxury-card tier-card p-8">
+       <h3 class="serif-heading text-2xl mb-2" style="color: #2c2c2c;">SB Mentorship</h3>
+       <div class="tier-price">
+        $1,797
+       </div>
+       <p class="tier-bullet font-semibold mb-6" style="color: #555;">This is for scaling. Systems, hiring, real growth.</p>
+       <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="https://square.link/u/JbBPKRl5?src=sheet" target="_blank" rel="noopener noreferrer" class="btn-primary tier-payment-btn" style="text-align: center; text-decoration: none; display: block;">Enroll Now</a>
+        <p style="font-size: 12px; color: #999; text-align: center; margin: 0;">Secure checkout via Square</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- ENROLLMENT FLOW SECTION -->
+   <section class="section-spacing">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-8 text-center" style="color: #2c2c2c;">Here's what happens after you enroll</h2>
+     <div class="mx-auto w-16 h-1 rounded-full mb-16" style="background: var(--accent-pink, #f08aa2);"></div>
+     <div class="flex flex-col md:flex-row gap-8 mb-16">
+      <div class="process-step">
+       <div class="step-number">
+        1
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">Click Enroll</p>
+       <p style="color: #666; font-size: 15px; margin-top: 8px;">Choose your mentorship and complete payment</p>
+      </div>
+      <div class="hidden md:flex items-center">
+       <div style="width: 40px; height: 2px; background: var(--accent-pink, #f08aa2); opacity: 0.3;"></div>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        2
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">Secure Checkout</p>
+       <p style="color: #666; font-size: 15px; margin-top: 8px;">You'll be taken to a secure Square payment page</p>
+      </div>
+      <div class="hidden md:flex items-center">
+       <div style="width: 40px; height: 2px; background: var(--accent-pink, #f08aa2); opacity: 0.3;"></div>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        3
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">Complete Onboarding</p>
+       <p style="color: #666; font-size: 15px; margin-top: 8px;">Return to the site and fill out your onboarding form</p>
+      </div>
+      <div class="hidden md:flex items-center">
+       <div style="width: 40px; height: 2px; background: var(--accent-pink, #f08aa2); opacity: 0.3;"></div>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        4
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">Get Set Up</p>
+       <p style="color: #666; font-size: 15px; margin-top: 8px;">Your information is received and your setup begins</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- PROCESS SECTION -->
+   <section class="section-spacing">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-8 text-center" style="color: #2c2c2c;">It's Really Simple</h2>
+     <div class="mx-auto w-16 h-1 rounded-full mb-16" style="background: var(--accent-pink, #f08aa2);"></div>
+     <div class="flex flex-col md:flex-row gap-8 mb-16">
+      <div class="process-step">
+       <div class="step-number">
+        1
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">Pick your tier</p>
+      </div>
+      <div class="hidden md:flex items-center">
+       <div style="width: 40px; height: 2px; background: var(--accent-pink, #f08aa2); opacity: 0.3;"></div>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        2
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">Complete onboarding</p>
+      </div>
+      <div class="hidden md:flex items-center">
+       <div style="width: 40px; height: 2px; background: var(--accent-pink, #f08aa2); opacity: 0.3;"></div>
+      </div>
+      <div class="process-step">
+       <div class="step-number">
+        3
+       </div>
+       <p class="text-lg font-semibold" style="color: #2c2c2c;">We build it out the right way</p>
+      </div>
+     </div>
+     <div class="text-center">
+      <p class="text-xl font-semibold" style="color: #555;">I'll tell you what to do, when to do it, and how to do it.</p>
+     </div>
+    </div>
+   </section><!-- ONBOARDING SECTION -->
+   <section class="section-spacing" style="background: #faf8f6;" id="onboarding-section">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-4 text-center" style="color: #2c2c2c;">Already enrolled? Complete your onboarding below</h2>
+     <p class="text-center text-lg mb-12" style="color: #555;">If you've completed payment, fill out your form so we can begin your setup.</p>
+     <div class="onboarding-buttons">
+      <div class="onboarding-btn" data-onboarding-type="ptin">
+       <div class="onboarding-btn-title">
+        PTIN Onboarding
+       </div>
+       <div class="onboarding-btn-desc">
+        Get set up to start filing
+       </div>
+      </div>
+      <div class="onboarding-btn" data-onboarding-type="ero">
+       <div class="onboarding-btn-title">
+        ERO Onboarding
+       </div>
+       <div class="onboarding-btn-desc">
+        Full e-filing authority setup
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- EMOTIONAL TRUST SECTION -->
+   <section class="section-spacing">
+    <div class="max-width-wrapper">
+     <div class="quote-box">
+      <h3>Girl, God got you.</h3>
+      <p style="color: #555;">Stop stressing… but also let's fix it the right way.</p>
+      <p style="color: #999; margin-top: 24px; font-size: 13px;">I'm here to help, but you have to move.</p>
+     </div>
+    </div>
+   </section><!-- URGENCY SECTION -->
+   <section class="section-spacing" style="background: var(--accent-pink, #f08aa2); background: linear-gradient(135deg, var(--accent-pink, #f08aa2) 0%, rgba(240, 138, 162, 0.9) 100%);">
+    <div class="max-width-wrapper">
+     <h2 class="serif-heading text-4xl mb-8 text-center" style="color: white;">I'm Onboarding a Limited Number of People</h2>
+     <div class="max-w-2xl mx-auto text-center mb-12">
+      <p class="text-lg leading-relaxed mb-4" style="color: rgba(255, 255, 255, 0.95);">If you've been waiting, this is your moment.</p>
+      <p class="text-lg leading-relaxed font-semibold" style="color: rgba(255, 255, 255, 0.95);">Don't go another year confused.</p>
+     </div>
+     <div class="text-center"><button style="background: white; color: var(--primary-color, #bf9999);" class="btn-primary"> Start Now </button>
+     </div>
+    </div>
+   </section><!-- CHATBOT WIDGET -->
+   <div class="chatbot-widget">
+    <button class="chatbot-bubble" id="chatbot-toggle"> <i data-lucide="message-circle"></i> </button>
+    <div class="chatbot-window" id="chatbot-window">
+     <div class="chatbot-header">
+      <h3>How can we help?</h3><button class="chatbot-close" id="chatbot-close"> <i data-lucide="x"></i> </button>
+     </div>
+     <div class="chatbot-messages" id="chatbot-messages"></div>
+     <div class="chatbot-input-area">
+      <input class="chatbot-input" id="chatbot-input" type="text" placeholder="Ask a question..."> <button class="chatbot-send" id="chatbot-send"> <i data-lucide="send"></i> </button>
+     </div>
+    </div>
+   </div><!-- FOOTER -->
+   <footer>
+    <div class="max-width-wrapper">
+     <p style="font-weight: 700; font-size: 16px; margin-bottom: 16px;">Pretty Basic Consulting Co.</p>
+     <p>Tax Preparer • Notary Public</p>
+     <p>Oxford, MS</p>
+     <p style="margin-top: 12px; opacity: 0.8;">English &amp; Spanish</p>
+    </div>
+   </footer><!-- LOGIN MODAL -->
+   <div class="login-modal-overlay" id="login-modal-overlay">
+    <div class="login-modal">
+     <h2>Operator Login</h2>
+     <p class="login-modal-subtitle">Authorized Use Only</p>
+     <div class="login-demo-notice">
+      This login is for authorized use only by the operator.
+     </div>
+     <form id="login-form">
+      <div class="login-form-group"><label class="login-form-label" for="login-email">Email</label> <input type="email" id="login-email" class="login-form-input" placeholder="operator@luxetaxacademy.com" required>
+      </div>
+      <div class="login-form-group"><label class="login-form-label" for="login-password">Password</label> <input type="password" id="login-password" class="login-form-input" placeholder="••••••••" required>
+      </div>
+      <div class="login-form-buttons"><button type="button" class="login-cancel" id="login-cancel">Cancel</button> <button type="submit" class="login-submit">Sign In</button>
+      </div>
+     </form>
+    </div>
+   </div>
+  </div><!-- CONTACT MODAL -->
+  <div class="contact-modal-overlay" id="contact-modal-overlay">
+   <div class="contact-modal">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+     <div>
+      <h2>Get In Touch</h2>
+      <p class="contact-modal-subtitle">We'd love to hear from you</p>
+     </div><button id="contact-close" type="button" style="background: none; border: none; color: #999; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 24px; line-height: 1;">✕</button>
+    </div>
+    <form id="contact-form">
+     <div class="contact-form-group"><label class="contact-form-label" for="contact-name">Name</label> <input type="text" id="contact-name" class="contact-form-input" placeholder="Your name" required>
+     </div>
+     <div class="contact-form-group"><label class="contact-form-label" for="contact-email">Email</label> <input type="email" id="contact-email" class="contact-form-input" placeholder="your@email.com" required>
+     </div>
+     <div class="contact-form-group"><label class="contact-form-label" for="contact-subject">Subject</label> <input type="text" id="contact-subject" class="contact-form-input" placeholder="What's this about?" required>
+     </div>
+     <div class="contact-form-group"><label class="contact-form-label" for="contact-message">Message</label> <textarea id="contact-message" class="contact-form-textarea" placeholder="Tell us more..." required></textarea>
+     </div>
+     <div class="contact-form-buttons"><button type="button" class="contact-cancel" id="contact-cancel-btn">Cancel</button> <button type="submit" class="contact-submit">Send Message</button>
+     </div>
+    </form>
+   </div>
+  </div>
+  <script>
+    // Element SDK initialization
+    const defaultConfig = {
+      primary_color: '#bf9999',
+      accent_pink: '#f08aa2',
+      highlight_color: '#ffb3c8'
+    };
+
+    const config = { ...defaultConfig };
+
+    const elementHandler = {
+      defaultConfig,
+      async onConfigChange(cfg) {
+        config.primary_color = cfg.primary_color || defaultConfig.primary_color;
+        config.accent_pink = cfg.accent_pink || defaultConfig.accent_pink;
+        config.highlight_color = cfg.highlight_color || defaultConfig.highlight_color;
+
+        document.documentElement.style.setProperty('--primary-color', config.primary_color);
+        document.documentElement.style.setProperty('--accent-pink', config.accent_pink);
+        document.documentElement.style.setProperty('--highlight-color', config.highlight_color);
+      },
+      mapToCapabilities(cfg) {
+        return {
+          recolorables: [
+            {
+              get: () => cfg.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => cfg.accent_pink || defaultConfig.accent_pink,
+              set: (value) => {
+                config.accent_pink = value;
+                window.elementSdk.setConfig({ accent_pink: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        };
+      },
+      mapToEditPanelValues(cfg) {
+        return new Map([
+          ['primary_color', cfg.primary_color || defaultConfig.primary_color],
+          ['accent_pink', cfg.accent_pink || defaultConfig.accent_pink]
+        ]);
+      }
+    };
+
+    window.elementSdk.init(elementHandler);
+
+    // Set CSS variables
+    document.documentElement.style.setProperty('--primary-color', config.primary_color);
+    document.documentElement.style.setProperty('--accent-pink', config.accent_pink);
+    document.documentElement.style.setProperty('--highlight-color', config.highlight_color);
+
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Dashboard data
+    let allSubmissions = [];
+    let currentDetailRecord = null;
+
+    // Load sample data from features.json context
+    const sampleSubmissions = [
+      {"id":"1","date":"2024-01-22","name":"Sarah Johnson","email":"sarah@email.com","phone":"555-0101","program":"Elite PTIN","formType":"PTIN","status":"New"},
+      {"id":"2","date":"2024-01-20","name":"Marcus Lee","email":"marcus@email.com","phone":"555-0102","program":"ERO Mentorship","formType":"ERO","status":"Reviewed"},
+      {"id":"3","date":"2024-01-18","name":"Amara Williams","email":"amara@email.com","phone":"555-0103","program":"Growth PTIN","formType":"PTIN","status":"Imported to Go High Level"},
+      {"id":"4","date":"2024-01-15","name":"Jessica Garcia","email":"jessica@email.com","phone":"555-0104","program":"SB Mentorship","formType":"ERO","status":"Missing info"},
+      {"id":"5","date":"2024-01-12","name":"David Brown","email":"david@email.com","phone":"555-0105","program":"Starter PTIN","formType":"PTIN","status":"New"}
+    ];
+
+    allSubmissions = [...sampleSubmissions];
+
+    // Operator Login Logic
+    const operatorLoginBtn = document.getElementById('operator-login-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const operatorDashboard = document.getElementById('operator-dashboard');
+    const mainHeader = document.getElementById('main-header');
+
+    // Check if already logged in
+    if (sessionStorage.getItem('operatorLoggedIn') === 'true') {
+      showOperatorDashboard();
+    }
+
+    operatorLoginBtn.addEventListener('click', () => {
+      showLoginModal();
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('operatorLoggedIn');
+      hideOperatorDashboard();
+    });
+
+    function showOperatorDashboard() {
+      mainHeader.style.display = 'none';
+      document.querySelectorAll('section').forEach(el => el.style.display = 'none');
+      document.querySelector('footer').style.display = 'none';
+      operatorDashboard.style.display = 'block';
+      renderDashboard();
+    }
+
+    function hideOperatorDashboard() {
+      mainHeader.style.display = 'block';
+      document.querySelectorAll('section').forEach(el => el.style.display = 'block');
+      document.querySelector('footer').style.display = 'block';
+      operatorDashboard.style.display = 'none';
+    }
+
+    function showLoginModal() {
+      const loginModalOverlay = document.getElementById('login-modal-overlay');
+      loginModalOverlay.classList.add('open');
+    }
+
+    function hideLoginModal() {
+      const loginModalOverlay = document.getElementById('login-modal-overlay');
+      loginModalOverlay.classList.remove('open');
+    }
+
+    const loginForm = document.getElementById('login-form');
+    const loginCancel = document.getElementById('login-cancel');
+    const loginModalOverlay = document.getElementById('login-modal-overlay');
+
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      
+      if (email && password) {
+        sessionStorage.setItem('operatorLoggedIn', 'true');
+        hideLoginModal();
+        showOperatorDashboard();
+        loginForm.reset();
+      }
+    });
+
+    loginCancel.addEventListener('click', () => {
+      hideLoginModal();
+      loginForm.reset();
+    });
+
+    loginModalOverlay.addEventListener('click', (e) => {
+      if (e.target === loginModalOverlay) {
+        hideLoginModal();
+        loginForm.reset();
+      }
+    });
+
+    // Dashboard functions
+    function getFilteredSubmissions() {
+      const searchTerm = document.getElementById('search-input').value.toLowerCase();
+      const formTypeFilter = document.getElementById('form-type-filter').value;
+      const statusFilter = document.getElementById('status-filter').value;
+
+      return allSubmissions.filter(sub => {
+        const matchesSearch = !searchTerm || 
+          sub.name.toLowerCase().includes(searchTerm) ||
+          sub.email.toLowerCase().includes(searchTerm) ||
+          sub.phone.includes(searchTerm);
+        
+        const matchesFormType = !formTypeFilter || sub.formType === formTypeFilter;
+        const matchesStatus = !statusFilter || sub.status === statusFilter;
+
+        return matchesSearch && matchesFormType && matchesStatus;
+      });
+    }
+
+    function renderDashboard() {
+      updateSummaryCards();
+      renderTable();
+    }
+
+    function updateSummaryCards() {
+      const total = allSubmissions.length;
+      const ptin = allSubmissions.filter(s => s.formType === 'PTIN').length;
+      const ero = allSubmissions.filter(s => s.formType === 'ERO').length;
+      const newThisWeek = allSubmissions.filter(s => {
+        const submissionDate = new Date(s.date);
+        const oneWeekAgo = new Date();
+        oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+        return submissionDate >= oneWeekAgo;
+      }).length;
+
+      document.getElementById('total-count').textContent = total;
+      document.getElementById('ptin-count').textContent = ptin;
+      document.getElementById('ero-count').textContent = ero;
+      document.getElementById('new-week-count').textContent = newThisWeek;
+    }
+
+    function renderTable() {
+      const filtered = getFilteredSubmissions();
+      const tbody = document.getElementById('submissions-table-body');
+      const noDataMsg = document.getElementById('no-data-message');
+
+      tbody.innerHTML = '';
+
+      if (filtered.length === 0) {
+        noDataMsg.style.display = 'block';
+        return;
+      }
+
+      noDataMsg.style.display = 'none';
+
+      filtered.forEach(sub => {
+        const row = document.createElement('tr');
+        row.style.cssText = 'border-bottom: 1px solid #e0e0e0;';
+        
+        const statusColor = {
+          'New': 'var(--accent-pink, #f08aa2)',
+          'Reviewed': 'var(--primary-color, #bf9999)',
+          'Missing info': '#ff9800',
+          'Imported to Go High Level': '#4caf50'
+        };
+
+        row.innerHTML = `
+          <td style="padding: 16px; color: #666;">${sub.date}</td>
+          <td style="padding: 16px; color: #2c2c2c; font-weight: 600;">${sub.name}</td>
+          <td style="padding: 16px; color: #666; font-size: 13px;">${sub.email}</td>
+          <td style="padding: 16px; color: #666; font-size: 13px;">${sub.phone}</td>
+          <td style="padding: 16px; color: #555; font-size: 13px;">${sub.program}</td>
+          <td style="padding: 16px; color: #555;"><span style="background: ${sub.formType === 'PTIN' ? '#f0f0f0' : '#fff3e0'}; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">${sub.formType}</span></td>
+          <td style="padding: 16px;"><span style="background: ${statusColor[sub.status] || '#ddd'}; color: white; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600;">${sub.status}</span></td>
+          <td style="padding: 16px; text-align: center;"><button class="view-details-btn" data-id="${sub.id}" style="background: none; border: 1px solid var(--primary-color, #bf9999); color: var(--primary-color, #bf9999); padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 600; font-family: 'Poppins', sans-serif; transition: all 0.3s ease;">View</button></td>
+        `;
+
+        tbody.appendChild(row);
+      });
+
+      // Attach view details listeners
+      document.querySelectorAll('.view-details-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = e.target.getAttribute('data-id');
+          const record = allSubmissions.find(s => s.id === id);
+          if (record) showDetailModal(record);
+        });
+      });
+    }
+
+    function showDetailModal(record) {
+      currentDetailRecord = record;
+      const content = document.getElementById('detail-content');
+      
+      content.innerHTML = `
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div>
+            <p style="color: #999; font-size: 12px; font-weight: 600; margin: 0 0 4px 0;">Name</p>
+            <p style="color: #2c2c2c; margin: 0; font-weight: 500;">${record.name}</p>
+          </div>
+          <div>
+            <p style="color: #999; font-size: 12px; font-weight: 600; margin: 0 0 4px 0;">Email</p>
+            <p style="color: #2c2c2c; margin: 0; font-weight: 500;">${record.email}</p>
+          </div>
+          <div>
+            <p style="color: #999; font-size: 12px; font-weight: 600; margin: 0 0 4px 0;">Phone</p>
+            <p style="color: #2c2c2c; margin: 0; font-weight: 500;">${record.phone}</p>
+          </div>
+          <div>
+            <p style="color: #999; font-size: 12px; font-weight: 600; margin: 0 0 4px 0;">Date Submitted</p>
+            <p style="color: #2c2c2c; margin: 0; font-weight: 500;">${record.date}</p>
+          </div>
+          <div>
+            <p style="color: #999; font-size: 12px; font-weight: 600; margin: 0 0 4px 0;">Program Selected</p>
+            <p style="color: #2c2c2c; margin: 0; font-weight: 500;">${record.program}</p>
+          </div>
+          <div>
+            <p style="color: #999; font-size: 12px; font-weight: 600; margin: 0 0 4px 0;">Form Type</p>
+            <p style="color: #2c2c2c; margin: 0; font-weight: 500;">${record.formType}</p>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('detail-status').value = record.status;
+      document.getElementById('detail-modal-overlay').style.display = 'flex';
+    }
+
+    document.getElementById('detail-close').addEventListener('click', () => {
+      document.getElementById('detail-modal-overlay').style.display = 'none';
+    });
+
+    document.getElementById('detail-modal-overlay').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('detail-modal-overlay')) {
+        document.getElementById('detail-modal-overlay').style.display = 'none';
+      }
+    });
+
+    document.getElementById('detail-update-btn').addEventListener('click', () => {
+      if (currentDetailRecord) {
+        currentDetailRecord.status = document.getElementById('detail-status').value;
+        renderTable();
+        document.getElementById('detail-modal-overlay').style.display = 'none';
+        
+        const msg = document.createElement('div');
+        msg.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: var(--accent-pink, #f08aa2);
+          color: white;
+          padding: 16px 24px;
+          border-radius: 10px;
+          font-weight: 600;
+          z-index: 3000;
+          animation: slideUp 0.4s ease;
+        `;
+        msg.textContent = 'Status updated successfully!';
+        document.body.appendChild(msg);
+        setTimeout(() => msg.remove(), 2000);
+      }
+    });
+
+    // Filter listeners
+    document.getElementById('search-input').addEventListener('input', renderDashboard);
+    document.getElementById('form-type-filter').addEventListener('change', renderDashboard);
+    document.getElementById('status-filter').addEventListener('change', renderDashboard);
+
+    document.getElementById('reset-filters-btn').addEventListener('click', () => {
+      document.getElementById('search-input').value = '';
+      document.getElementById('form-type-filter').value = '';
+      document.getElementById('status-filter').value = '';
+      renderDashboard();
+    });
+
+    // Export functions
+    function downloadCSV(data, filename) {
+      const headers = ['Date', 'Name', 'Email', 'Phone', 'Program', 'Form Type', 'Status'];
+      const rows = data.map(sub => [
+        sub.date,
+        sub.name,
+        sub.email,
+        sub.phone,
+        sub.program,
+        sub.formType,
+        sub.status
+      ]);
+
+      const csvContent = [
+        headers.join(','),
+        ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
+      ].join('\n');
+
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      link.click();
+      window.URL.revokeObjectURL(url);
+    }
+
+    document.getElementById('export-all-btn').addEventListener('click', () => {
+      downloadCSV(allSubmissions, `all-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+    });
+
+    document.getElementById('export-filtered-btn').addEventListener('click', () => {
+      downloadCSV(getFilteredSubmissions(), `filtered-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+    });
+
+    document.getElementById('export-ptin-btn').addEventListener('click', () => {
+      downloadCSV(allSubmissions.filter(s => s.formType === 'PTIN'), `ptin-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+    });
+
+    document.getElementById('export-ero-btn').addEventListener('click', () => {
+      downloadCSV(allSubmissions.filter(s => s.formType === 'ERO'), `ero-submissions-${new Date().toISOString().split('T')[0]}.csv`);
+    });
+
+    // Onboarding flow data
+    const onboardingFlows = {
+      ptin: {
+        title: 'PTIN Tax Preparer Onboarding',
+        description: 'For tax preparers joining The Luxe Tax Academy through the PTIN mentorship tiers.',
+        submitButtonText: 'Complete PTIN Onboarding',
+        steps: [
+          {
+            title: 'Basic Information',
+            fields: [
+              { name: 'firstName', label: 'First Name', type: 'text', required: true },
+              { name: 'lastName', label: 'Last Name', type: 'text', required: true },
+              { name: 'email', label: 'Email', type: 'email', required: true },
+              { name: 'phone', label: 'Phone', type: 'tel', required: true },
+              { name: 'dob', label: 'Date of Birth', type: 'date', required: true }
+            ]
+          },
+          {
+            title: 'Address',
+            fields: [
+              { name: 'street', label: 'Street Address', type: 'text', required: true },
+              { name: 'city', label: 'City', type: 'text', required: true },
+              { name: 'state', label: 'State', type: 'text', required: true },
+              { name: 'zip', label: 'Zip Code', type: 'text', required: true }
+            ]
+          },
+          {
+            title: 'Tax Experience',
+            fields: [
+              { name: 'filesTaxes', label: 'Do you file taxes?', type: 'toggle', required: true },
+              { name: 'hasPtin', label: 'Do you have a PTIN?', type: 'toggle', required: true }
+            ]
+          },
+          {
+            title: 'Upload Documents',
+            fields: [
+              { name: 'idUpload', label: 'Upload ID', type: 'file', required: true },
+              { name: 'ptinUpload', label: 'Upload PTIN Letter', type: 'file', required: true }
+            ]
+          }
+        ]
+      },
+      ero: {
+        title: 'ERO / EFIN Holder Onboarding',
+        description: 'For serious preparers ready for software setup, ERO structure, app setup, and business workflow support.',
+        submitButtonText: 'Complete ERO Onboarding',
+        steps: [
+          {
+            title: 'Preparer Type',
+            fields: [
+              { name: 'preparerType', label: 'Select Type', type: 'toggle', options: ['PTIN Only', 'ERO/EFIN Holder'], required: true }
+            ]
+          },
+          {
+            title: 'Personal Information',
+            fields: [
+              { name: 'firstName', label: 'First Name', type: 'text', required: true },
+              { name: 'lastName', label: 'Last Name', type: 'text', required: true },
+              { name: 'dob', label: 'Date of Birth', type: 'date', required: true },
+              { name: 'email', label: 'Email', type: 'email', required: true },
+              { name: 'ssn', label: 'SSN', type: 'password', required: true }
+            ]
+          },
+          {
+            title: 'Business Setup',
+            fields: [
+              { name: 'businessName', label: 'Business Name', type: 'text', required: true },
+              { name: 'ein', label: 'EIN', type: 'text', required: true },
+              { name: 'businessAddress', label: 'Business Address', type: 'text', required: true },
+              { name: 'businessPhone', label: 'Business Phone', type: 'tel', required: true }
+            ]
+          },
+          {
+            title: 'Upload Documents',
+            fields: [
+              { name: 'ptinUpload', label: 'Upload PTIN Letter', type: 'file', required: true },
+              { name: 'idUpload', label: 'Upload ID', type: 'file', required: true },
+              { name: 'logoUpload', label: 'Upload Logo', type: 'file', required: false }
+            ]
+          },
+          {
+            title: 'App Setup',
+            fields: [
+              { name: 'appName', label: 'App Name', type: 'text', required: true },
+              { name: 'appColor', label: 'App Color', type: 'color', required: true }
+            ]
+          }
+        ]
+      }
+    };
+
+    let currentFlow = null;
+    let currentStep = 0;
+    const formData = {};
+
+    const onboardingOverlay = document.getElementById('onboarding-modal-overlay');
+    const onboardingModal = document.getElementById('onboarding-modal');
+    const onboardingTitle = document.getElementById('onboarding-title');
+    const onboardingDescription = document.getElementById('onboarding-description');
+    const progressIndicator = document.getElementById('progress-indicator');
+    const onboardingForm = document.getElementById('onboarding-form');
+    const onboardingClose = document.getElementById('onboarding-close');
+    const onboardingBack = document.getElementById('onboarding-back');
+    const onboardingNext = document.getElementById('onboarding-next');
+    const onboardingSubmit = document.getElementById('onboarding-submit');
+
+    // Open onboarding flow
+    function openOnboardingFlow(flowType) {
+      currentFlow = onboardingFlows[flowType];
+      currentStep = 0;
+      formData[flowType] = {};
+      
+      onboardingTitle.textContent = currentFlow.title;
+      onboardingDescription.textContent = currentFlow.description;
+      renderProgressIndicator();
+      renderStep();
+      
+      onboardingOverlay.style.display = 'flex';
+    }
+
+    // Render progress indicator
+    function renderProgressIndicator() {
+      progressIndicator.innerHTML = '';
+      for (let i = 0; i < currentFlow.steps.length; i++) {
+        const dot = document.createElement('div');
+        dot.style.cssText = `
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: ${i === currentStep ? 'var(--primary-color, #bf9999)' : i < currentStep ? 'var(--accent-pink, #f08aa2)' : '#ddd'};
+          transition: all 0.3s ease;
+        `;
+        progressIndicator.appendChild(dot);
+      }
+    }
+
+    // Render current step
+    function renderStep() {
+      onboardingForm.innerHTML = '';
+      const step = currentFlow.steps[currentStep];
+      
+      const stepTitle = document.createElement('h3');
+      stepTitle.style.cssText = 'font-size: 20px; color: #2c2c2c; margin-bottom: 16px; font-weight: 600;';
+      stepTitle.textContent = step.title;
+      onboardingForm.appendChild(stepTitle);
+
+      step.fields.forEach(field => {
+        const formGroup = document.createElement('div');
+        formGroup.style.cssText = 'display: flex; flex-direction: column; gap: 8px;';
+
+        const label = document.createElement('label');
+        label.style.cssText = 'font-weight: 600; font-size: 14px; color: #2c2c2c;';
+        label.textContent = field.label;
+        formGroup.appendChild(label);
+
+        if (field.type === 'text' || field.type === 'email' || field.type === 'tel' || field.type === 'date' || field.type === 'password') {
+          const input = document.createElement('input');
+          input.type = field.type;
+          input.name = field.name;
+          input.style.cssText = `
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+          `;
+          input.onchange = () => formData[field.name] = input.value;
+          formGroup.appendChild(input);
+        } else if (field.type === 'toggle') {
+          const toggleContainer = document.createElement('div');
+          toggleContainer.style.cssText = 'display: flex; gap: 8px;';
+          
+          const options = field.options || ['Yes', 'No'];
+          options.forEach((option, idx) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.textContent = option;
+            btn.style.cssText = `
+              flex: 1;
+              padding: 10px 16px;
+              border: 2px solid var(--primary-color, #bf9999);
+              background: ${formData[field.name] === option ? 'var(--primary-color, #bf9999)' : 'transparent'};
+              color: ${formData[field.name] === option ? 'white' : 'var(--primary-color, #bf9999)'};
+              border-radius: 8px;
+              font-weight: 600;
+              cursor: pointer;
+              transition: all 0.3s ease;
+              font-family: 'Poppins', sans-serif;
+            `;
+            btn.onclick = (e) => {
+              e.preventDefault();
+              formData[field.name] = option;
+              renderStep();
+            };
+            toggleContainer.appendChild(btn);
+          });
+          formGroup.appendChild(toggleContainer);
+        } else if (field.type === 'color') {
+          const input = document.createElement('input');
+          input.type = 'color';
+          input.name = field.name;
+          input.style.cssText = 'width: 60px; height: 40px; border: none; border-radius: 8px; cursor: pointer;';
+          input.onchange = () => formData[field.name] = input.value;
+          formGroup.appendChild(input);
+        } else if (field.type === 'file') {
+          const input = document.createElement('input');
+          input.type = 'file';
+          input.name = field.name;
+          input.style.cssText = `
+            padding: 12px 16px;
+            border: 2px dashed var(--primary-color, #bf9999);
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+          `;
+          input.onchange = () => formData[field.name] = input.value;
+          formGroup.appendChild(input);
+        }
+
+        onboardingForm.appendChild(formGroup);
+      });
+
+      // Update button visibility
+      onboardingBack.style.display = currentStep > 0 ? 'block' : 'none';
+      onboardingNext.style.display = currentStep < currentFlow.steps.length - 1 ? 'block' : 'none';
+      onboardingSubmit.style.display = currentStep === currentFlow.steps.length - 1 ? 'block' : 'none';
+      
+      renderProgressIndicator();
+    }
+
+    // Close modal
+    onboardingClose.addEventListener('click', () => {
+      onboardingOverlay.style.display = 'none';
+      currentFlow = null;
+      currentStep = 0;
+    });
+
+    // Back button
+    onboardingBack.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        renderStep();
+      }
+    });
+
+    // Next button
+    onboardingNext.addEventListener('click', () => {
+      if (currentStep < currentFlow.steps.length - 1) {
+        currentStep++;
+        renderStep();
+      }
+    });
+
+    // Submit form
+    onboardingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Show success message
+      const successMsg = document.createElement('div');
+      successMsg.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--accent-pink, #f08aa2);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 10px;
+        font-weight: 600;
+        z-index: 3000;
+        animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      `;
+      successMsg.textContent = `${currentFlow.submitButtonText} submitted successfully!`;
+      document.body.appendChild(successMsg);
+      
+      setTimeout(() => {
+        onboardingOverlay.style.display = 'none';
+        successMsg.remove();
+        currentFlow = null;
+        currentStep = 0;
+      }, 2000);
+    });
+
+    // Attach listeners to onboarding buttons
+    document.querySelectorAll('.onboarding-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const flowType = btn.getAttribute('data-onboarding-type');
+        openOnboardingFlow(flowType);
+      });
+    });
+
+    // Attach listeners to "Get Started" and "Enroll Now" buttons
+    document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const text = btn.textContent.trim();
+        if (text === 'Get Started') {
+          openOnboardingFlow('ptin');
+        } else if (text === 'Start Now') {
+          openOnboardingFlow('ptin');
+        }
+      });
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // View Mentorship Options button
+    const viewMentorshipBtn = document.querySelector('.view-mentorship-btn');
+    viewMentorshipBtn.addEventListener('click', () => {
+      const target = document.getElementById('choose-your-path');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    // Hover effect for nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('mouseenter', function() {
+        this.style.color = config.accent_pink;
+      });
+      link.addEventListener('mouseleave', function() {
+        this.style.color = '#2c2c2c';
+      });
+    });
+
+    // Hover effect for operator login button
+    operatorLoginBtn.addEventListener('mouseenter', function() {
+      this.style.background = config.primary_color;
+      this.style.color = 'white';
+    });
+    operatorLoginBtn.addEventListener('mouseleave', function() {
+      this.style.background = 'transparent';
+      this.style.color = config.primary_color;
+    });
+
+    // Chatbot Logic
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotWindow = document.getElementById('chatbot-window');
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    const chatbotInput = document.getElementById('chatbot-input');
+    const chatbotSend = document.getElementById('chatbot-send');
+
+    const chatbotResponses = {
+      'hello': 'Hey there! 👋 How can I help you with your tax journey today?',
+      'hi': 'Hey there! 👋 How can I help you with your tax journey today?',
+      'mentorship': 'We offer 5 tiers: Starter ($99), Growth ($299), Elite PTIN ($899), ERO Mentorship ($997), and SB Mentorship ($1,797). Which one interests you?',
+      'price': 'Our pricing ranges from $99 to $1,797 depending on your level. What tier are you interested in?',
+      'cost': 'Our pricing ranges from $99 to $1,797 depending on your level. What tier are you interested in?',
+      'ptin': 'PTIN onboarding helps you get set up to start filing. Perfect if you\'re just getting started!',
+      'ero': 'ERO onboarding gives you full e-filing authority setup. This is for serious filers.',
+      'tier': 'We have 5 mentorship tiers to fit your needs. Are you just starting out or looking to scale?',
+      'contact': 'You can reach us at Pretty Basic Consulting Co. in Oxford, MS. We speak English & Spanish!',
+      'help': 'I can answer questions about: mentorship tiers, pricing, onboarding, PTIN, ERO, and more. What would you like to know?',
+      'default': 'Great question! I\'m here to help. Is there something specific about our mentorship programs I can clarify?'
+    };
+
+    function getBotResponse(userMessage) {
+      const lowerMessage = userMessage.toLowerCase().trim();
+      
+      for (const [key, response] of Object.entries(chatbotResponses)) {
+        if (lowerMessage.includes(key)) {
+          return response;
+        }
+      }
+      
+      return chatbotResponses.default;
+    }
+
+    function addMessage(text, isUser) {
+      const messageEl = document.createElement('div');
+      messageEl.className = `chatbot-message ${isUser ? 'user' : 'bot'}`;
+      messageEl.textContent = text;
+      chatbotMessages.appendChild(messageEl);
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+
+    function handleUserMessage() {
+      const userText = chatbotInput.value.trim();
+      if (!userText) return;
+
+      addMessage(userText, true);
+      chatbotInput.value = '';
+
+      setTimeout(() => {
+        const botResponse = getBotResponse(userText);
+        addMessage(botResponse, false);
+      }, 300);
+    }
+
+    chatbotToggle.addEventListener('click', () => {
+      chatbotWindow.classList.toggle('open');
+      if (chatbotWindow.classList.contains('open') && chatbotMessages.children.length === 0) {
+        addMessage('Hey! 👋 How can we help you today?', false);
+      }
+    });
+
+    chatbotClose.addEventListener('click', () => {
+      chatbotWindow.classList.remove('open');
+    });
+
+    chatbotSend.addEventListener('click', handleUserMessage);
+
+    chatbotInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleUserMessage();
+      }
+    });
+
+    // Contact Form Logic
+    const contactModalOverlay = document.getElementById('contact-modal-overlay');
+    const contactForm = document.getElementById('contact-form');
+    const contactClose = document.getElementById('contact-close');
+    const contactCancelBtn = document.getElementById('contact-cancel-btn');
+    const contactLinks = document.querySelectorAll('.contact-link');
+
+    function showContactModal() {
+      contactModalOverlay.classList.add('open');
+    }
+
+    function hideContactModal() {
+      contactModalOverlay.classList.remove('open');
+      contactForm.reset();
+    }
+
+    contactLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showContactModal();
+      });
+    });
+
+    contactClose.addEventListener('click', hideContactModal);
+    contactCancelBtn.addEventListener('click', hideContactModal);
+
+    contactModalOverlay.addEventListener('click', (e) => {
+      if (e.target === contactModalOverlay) {
+        hideContactModal();
+      }
+    });
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value;
+
+      // Show success message
+      const successMsg = document.createElement('div');
+      successMsg.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--accent-pink, #f08aa2);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 10px;
+        font-weight: 600;
+        z-index: 3000;
+        animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      `;
+      successMsg.textContent = 'Message sent! We\'ll be in touch soon.';
+      document.body.appendChild(successMsg);
+      
+      setTimeout(() => {
+        hideContactModal();
+        successMsg.remove();
+      }, 2000);
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f42b79d70b19a46',t:'MTc3NzUxMTk1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
