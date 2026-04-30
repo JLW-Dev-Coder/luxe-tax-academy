@@ -1,75 +1,71 @@
-## 📄 The Luxe Tax Academy — Site Overview
+📄 The Luxe Tax Academy — Site Overview
 
-This site is designed to help you enroll clients into your mentorship programs, collect their onboarding information, and manage submissions efficiently.
+This site is designed to help you enroll clients into your mentorship programs, collect onboarding information, and manage submissions.
 
----
+🔁 How It Works
+A client visits your site
+Clicks Enroll Now
+Completes payment (Square)
+Returns to complete onboarding
+You receive their information
+Download CSV
+Import into Go High Level
+💳 Mentorship Programs
+Tier 1 — PTIN Starter
+Tier 2 — PTIN Growth
+Tier 3 — PTIN Elite
+ERO Mentorship
+SB Mentorship
 
-## 🔁 How It Works
+All programs are connected to your payment links.
 
-1. A client visits your site
-2. Clicks **Enroll Now** on a mentorship tier
-3. Completes secure payment through Square
-4. Returns to the site to complete onboarding
-5. Their information is submitted and stored
-6. You download submissions as a CSV
-7. Import into Go High Level for follow-up
+🧾 Onboarding Forms
+PTIN Onboarding
+ERO Onboarding
 
----
+Clients complete these after payment.
 
-## 💳 Mentorship Programs
+📊 Managing Submissions
+Submissions are stored in your forms
+Export as CSV
+Upload into Go High Level
+🗂️ Project Structure
+luxe-tax-academy/
+  index.html
+  README.md
+  assets/
+    The Luxe Tax Academy v3-01.png
+✏️ How to Make Edits (Simple)
+Option 1 (Recommended)
 
-* Tier 1 — PTIN Starter
-* Tier 2 — PTIN Growth
-* Tier 3 — PTIN Elite
-* ERO Mentorship
-* SB Mentorship
+Tell me what you want changed and I’ll update it.
 
-Each program is connected directly to your Square payment links.
+Option 2 (Edit Yourself)
+Open the repo on GitHub
+Click index.html
+Click Edit (pencil icon)
+Update text, pricing, or links
+Click Commit changes
 
----
+Your site will update automatically.
 
-## 🧾 Onboarding Forms
+⚠️ Important
+Do not delete sections unless you’re sure
+Only change text, links, or pricing if unsure
+Ask for help for layout changes
+🌐 Domain & Hosting
+Hosted on Cloudflare
+Will be connected to your domain
+📞 Support / Contact
 
-Clients complete onboarding after payment using:
+If you need changes or help:
 
-* PTIN Onboarding Form
-* ERO Onboarding Form
+Email: (your email here)
+Or message me directly
 
-These forms collect all necessary client information for setup.
+You can also schedule a walkthrough:
+https://meet.google.com/rge-ojcj-gug
 
----
+🎯 Goal
 
-## 📊 Managing Submissions
-
-* All submissions are stored via your forms
-* You can export data as a **CSV file**
-* Upload the CSV into **Go High Level** to manage leads and follow-ups
-
----
-
-## ✏️ Making Changes
-
-If you need updates to:
-
-* Text
-* Pricing
-* Links
-* Sections
-
-Just request the changes and they’ll be handled for you.
-
----
-
-## 🌐 Domain & Hosting
-
-Your site will be connected to your domain and hosted so it stays live and accessible.
-
----
-
-## 🎯 Goal
-
-Simple system:
-
-**Get clients → collect info → follow up → close**
-
----
+Get clients → collect info → follow up → close
