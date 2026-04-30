@@ -1,7 +1,3 @@
-Here’s a clean, simple README you can include or send her:
-
----
-
 ## 📄 The Luxe Tax Academy — Site Overview
 
 This site is designed to help you enroll clients into your mentorship programs, collect their onboarding information, and manage submissions efficiently.
