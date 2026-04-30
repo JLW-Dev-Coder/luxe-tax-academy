@@ -96,8 +96,8 @@ Your site will update automatically.
 
 If you need changes or help:
 
-* Email: (your email here)
-* Or message me directly
+* Email: (jamie.williams@virtuallaunch.pro)
+* Or call/message me directly (619-800-5457)
 
 You can also schedule a walkthrough:
 [https://meet.google.com/rge-ojcj-gug](https://meet.google.com/rge-ojcj-gug)
